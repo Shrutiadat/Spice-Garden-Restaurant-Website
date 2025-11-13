@@ -15,7 +15,7 @@
 
 ### 🎥 *Experience the Magic*
 
-![Website Demo]([https://via.placeholder.com/800x450/667eea/ffffff?text=🍽️+Spice+Garden+Restaurant+Demo](https://github.com/Shrutiadat/Spice-Garden-Restaurant-Website/blob/main/Restaurant_HTML_CSS_PROJRCT/Header2.png))
+![Website Demo]([https://github.com/Shrutiadat/Spice-Garden-Restaurant-Website/blob/main/Restaurant_HTML_CSS_PROJRCT/Header2.png])
 
 *A fully responsive, modern restaurant website with smooth animations and interactive elements*
 
@@ -423,16 +423,6 @@ animation: fadeInUp 0.8s ease-out;
 ### **Desktop View**
 ![Desktop Preview](https://via.placeholder.com/800x450/667eea/ffffff?text=Desktop+View+-+Full+Navigation)
 
-### **Mobile View**
-<p align="center">
-  <img src="https://via.placeholder.com/300x600/667eea/ffffff?text=Mobile+View+-+Responsive" alt="Mobile View" width="300"/>
-</p>
-
-### **Interactive Features**
-<p align="center">
-  <img src="https://via.placeholder.com/400x300/667eea/ffffff?text=Hover+Effects" alt="Hover Effects" width="400"/>
-  <img src="https://via.placeholder.com/400x300/764ba2/ffffff?text=Smooth+Animations" alt="Animations" width="400"/>
-</p>
 
 ---
 
@@ -453,10 +443,6 @@ git push origin main
 - Select `main` branch
 - Click **Save**
 
-3. **Access Your Live Site** 🎉
-```
-https://yourusername.github.io/spice-garden-restaurant
-```
 
 ### **Alternative Hosting Options:**
 
@@ -555,22 +541,6 @@ https://yourusername.github.io/spice-garden-restaurant
 
 Contributions make the open-source community amazing! Any contributions are **greatly appreciated**.
 
-### **How to Contribute:**
-
-1. 🍴 **Fork the Project**
-2. 🌿 **Create your Feature Branch**
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. ✍️ **Commit your Changes**
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. 📤 **Push to the Branch**
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. 🎉 **Open a Pull Request**
 
 ### **Contribution Ideas:**
 - 🐛 Report bugs
@@ -581,27 +551,13 @@ Contributions make the open-source community amazing! Any contributions are **gr
 
 ---
 
-## 📜 **License**
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License - You can:
-✅ Use commercially
-✅ Modify
-✅ Distribute
-✅ Private use
-```
-
----
-
 ## 👨‍💻 **About the Developer**
 
 <div align="center">
 
 <img src="https://via.placeholder.com/150/667eea/ffffff?text=Your+Photo" width="150" style="border-radius: 50%;"/>
 
-### **Your Name**
+### **Shruti Adat**
 
 *Frontend Developer | HTML • CSS • JavaScript Enthusiast*
 
@@ -609,10 +565,9 @@ Passionate about creating beautiful, responsive, and user-friendly web experienc
 
 **🔗 Connect with Me:**
 
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yourportfolio.com)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your.email@example.com)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)]((https://github.com/Shrutiadat))
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]((https://www.linkedin.com/in/shruti-adat/))
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:shrutiadat17@gmail.com)
 
 </div>
 
@@ -640,7 +595,7 @@ Passionate about creating beautiful, responsive, and user-friendly web experienc
 
 💌 Drop me an email at: your.email@example.com
 
-💬 Open an issue on [GitHub](https://github.com/yourusername/spice-garden-restaurant/issues)
+💬 Open an issue on [GitHub](https://github.com/Shrutiadat/spice-garden-restaurant/issues)
 
 🌟 Star this repo if you found it helpful!
 
@@ -648,27 +603,16 @@ Passionate about creating beautiful, responsive, and user-friendly web experienc
 
 ---
 
-## 🙏 **Acknowledgments**
 
-Special thanks to:
-
-- 🖼️ **Unsplash** - High-quality food images
-- 👥 **RandomUser API** - Review profile pictures
-- 🎨 **Google Fonts** - Typography
-- 💡 **Inspiration** - Modern restaurant websites
-- 🤖 **Claude AI** - Learning assistance & guidance
-- 👨‍🏫 **Online Community** - Stack Overflow, MDN, CSS-Tricks
-
----
 
 ## 📊 **Project Stats**
 
 <div align="center">
 
-![GitHub repo size](https://img.shields.io/github/repo-size/yourusername/spice-garden-restaurant?style=for-the-badge)
-![GitHub stars](https://img.shields.io/github/stars/yourusername/spice-garden-restaurant?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/spice-garden-restaurant?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/spice-garden-restaurant?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/Shrutiadat/spice-garden-restaurant?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/Shrutiadat/spice-garden-restaurant?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/Shrutiadat/spice-garden-restaurant?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/Shrutiadat/spice-garden-restaurant?style=for-the-badge)
 
 </div>
 
