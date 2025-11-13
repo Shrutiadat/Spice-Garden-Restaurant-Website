@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Delicious Indian and Continental cuisine at Spice Garden Restaurant">
+    <title>Spice Garden - Restaurant Menu</title>
+    <style>
+        /* ========== RESET & GLOBAL STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== HEADER STYLES ========== */
+        header {
+            background: linear-gradient(135deg, rgba(204, 212, 247, 0.9) 0%, rgba(217, 184, 249, 0.9) 100%),
+                url('Header.png') center/cover;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: slideDown 0.8s ease-out;
+}
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        /* ========== NAVIGATION STYLES ========== */
+        nav {
+            background-color: #2c3e50;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0;
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #ffd700;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        nav a:hover {
+            background-color: #34495e;
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ========== HERO SECTION WITH PARALLAX ========== */
+        .hero-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 0;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-section:hover .hero-image-container img {
+            transform: scale(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 30px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-section:hover .hero-overlay {
+            transform: translateY(0);
+        }
+
+        .hero-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-content p {
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* ========== MENU SECTIONS ========== */
+        section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        section h2 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #667eea;
+            display: inline-block;
+            position: relative;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background-color: #ffd700;
+            animation: expandWidth 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        /* ========== MENU ITEMS WITH IMAGES ========== */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        article {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+        }
+
+        article:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .dish-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        article:hover .dish-image {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .dish-content {
+            padding: 20px;
+            position: relative;
+        }
+
+        .dish-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        article h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.4rem;
+            animation: pulse 2s infinite;
+        }
+
+        article p {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .dish-tags {
+            color: #e74c3c;
+            font-style: normal;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: #ffe5e5;
+            padding: 4px 10px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        article:hover .tag {
+            background-color: #ffd700;
+            color: #2c3e50;
+            transform: scale(1.1);
+        }
+
+        /* ========== FORM STYLES WITH ANIMATIONS ========== */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 600px;
+            margin: 30px auto 0;
+        }
+
+        label {
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 1rem;
+            transform: translateX(-10px);
+            animation: fadeInRight 0.5s ease-out forwards;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            animation: fadeInLeft 0.5s ease-out;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: scale(1.02);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* ========== FOOTER STYLES ========== */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 50px 20px;
+            margin-top: 60px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        footer > div {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        footer h3,
+        footer h4 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            animation: pulse 3s infinite;
+        }
+
+        footer address {
+            font-style: normal;
+            line-height: 2;
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffd700;
+            transition: width 0.3s ease;
+        }
+
+        footer a:hover::after {
+            width: 100%;
+        }
+
+        footer a:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            display: inline-block;
+        }
+
+        /* ========== SCROLL TO TOP BUTTON ========== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: pulse 2s infinite;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                padding: 12px 20px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            article h3 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            main {
+                padding: 10px;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            .hero-image-container {
+                height: 250px;
+            }
+        }
+
+        /* ========== LOADING ANIMATION ========== */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* ========== REVIEWS SECTION ========== */
+        .review-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 80px;
+            color: rgba(102, 126, 234, 0.2);
+            font-family: Georgia, serif;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .reviewer-info h4 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+
+        .reviewer-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-date {
+            color: #95a5a6;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header>
+        <h1 class="floating">🍽️ Spice Garden Restaurant</h1>
+        <p>Authentic flavors from around the world</p>
+        <p>📍 Pimpri, Maharashtra | ☎️ +91 1234567890</p>
+    </header>
+
+    <!-- NAVIGATION SECTION -->
+    <nav>
+        <ul>
+            <li><a href="#starters">Starters</a></li>
+            <li><a href="#main-course">Main Course</a></li>
+            <li><a href="#desserts">Desserts</a></li>
+            <li><a href="#beverages">Beverages</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-image-container">
+                <img src="hero-image-container.png" 
+                     alt="Elegant restaurant interior with warm lighting and dining tables">
+                <div class="hero-overlay">
+                    <h2 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Welcome to Our Kitchen!</h2>
+                </div>
+            </div>
+            <div class="hero-content">
+                <p>Experience the perfect blend of traditional Indian spices and continental flavors. Fresh ingredients, authentic recipes, and a cozy ambiance await you.</p>
+                <p><strong>Open:</strong> 11:00 AM - 11:00 PM | <strong>Delivery Available</strong> 🚚</p>
+            </div>
+        </section>
+
+        <!-- STARTERS SECTION -->
+        <section id="starters">
+            <h2>🥟 Starters</h2>
+            <div class="menu-grid">
+                <article>
+                    <img src="Paneer Tikka.png" 
+                         alt="Paneer Tikka" class="dish-image">
+                    <span class="dish-badge">Bestseller ⭐</span>
+                    <div class="dish-content">
+                        <h3>Paneer Tikka <span class="price">₹280</span></h3>
+                        <p>Cottage cheese marinated in Indian spices, grilled to perfection</p>
+                        <div class="dish-tags">
+                            <span class="tag">🌱 Vegetarian</span>
+                            <span class="tag">🌶️ Spicy</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Chicken Manchurian.png" 
+                         alt="Chicken Manchurian" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Chicken Manchurian <span class="price">₹320</span></h3>
+                        <p>Crispy chicken tossed in tangy Indo-Chinese sauce</p>
+                        <div class="dish-tags">
+                            <span class="tag">🍗 Non-Veg</span>
+                            <span class="tag">🌶️ Medium</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Spring Rolls.png" 
+                         alt="Spring Rolls" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Spring Rolls <span class="price">₹180</span></h3>
+                        <p>Crispy rolls stuffed with fresh vegetables and noodles</p>
+                        <div class="dish-tags">
+                            <span class="tag">🌱 Vegetarian</span>
+                            <span class="tag">😋 Mild</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Fish Fingers.png" 
+                         alt="Fish Fingers" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Fish Fingers <span class="price">₹350</span></h3>
+                        <p>Golden fried fish strips served with tartar sauce</p>
+                        <div class="dish-tags">
+                            <span class="tag">🐟 Seafood</span>
+                            <span class="tag">😋 Mild</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- MAIN COURSE SECTION -->
+        <section id="main-course">
+            <h2>🍛 Main Course</h2>
+            <div class="menu-grid">
+                <article>
+                    <img src="Butter Chicken.png" 
+                         alt="Butter Chicken" class="dish-image">
+                    <span class="dish-badge">Chef's Special ⭐</span>
+                    <div class="dish-content">
+                        <h3>Butter Chicken <span class="price">₹420</span></h3>
+                        <p>Tender chicken in rich, creamy tomato gravy. Served with naan or rice.</p>
+                        <div class="dish-tags">
+                            <span class="tag">🍗 Non-Veg</span>
+                            <span class="tag">😋 Mild</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Paneer Butter Masala.png" 
+                         alt="Paneer Butter Masala" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Paneer Butter Masala <span class="price">₹340</span></h3>
+                        <p>Soft paneer cubes in smooth cashew-tomato gravy</p>
+                        <div class="dish-tags">
+                            <span class="tag">🌱 Vegetarian</span>
+                            <span class="tag">😋 Mild</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Biryani.png" 
+                         alt="Biryani" class="dish-image">
+                    <span class="dish-badge">Popular 🔥</span>
+                    <div class="dish-content">
+                        <h3>Biryani <span class="price">₹280/₹380</span></h3>
+                        <p>Fragrant basmati rice cooked with aromatic spices and your choice of protein</p>
+                        <div class="dish-tags">
+                            <span class="tag">🌱/🍗 Both</span>
+                            <span class="tag">🌶️ Medium</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Grilled Fish.png" 
+                         alt="Grilled Fish" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Grilled Fish <span class="price">₹480</span></h3>
+                        <p>Fresh fish marinated with herbs, grilled and served with vegetables</p>
+                        <div class="dish-tags">
+                            <span class="tag">🐟 Seafood</span>
+                            <span class="tag">🥗 Healthy</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Pasta Alfredo.png" 
+                         alt="Pasta Alfredo" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Pasta Alfredo <span class="price">₹320</span></h3>
+                        <p>Creamy white sauce pasta with mushrooms and herbs</p>
+                        <div class="dish-tags">
+                            <span class="tag">🌱 Vegetarian</span>
+                            <span class="tag">🍝 Continental</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- DESSERTS SECTION -->
+        <section id="desserts">
+            <h2>🍨 Desserts</h2>
+            <div class="menu-grid">
+                <article>
+                    <img src="Gulab Jamun.png" 
+                         alt="Delicious Gulab Jamun soaked in sweet syrup" class="dish-image">
+                    <span class="dish-badge">Sweet Delight 🌟</span>
+                    <div class="dish-content">
+                        <h3>Gulab Jamun (2 pcs) <span class="price">₹80</span></h3>
+                        <p>Soft milk dumplings soaked in sugar syrup</p>
+                        <div class="dish-tags">
+                            <span class="tag">🍮 Traditional</span>
+                            <span class="tag">🇮🇳 Indian</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Brownie with Ice Cream.png" 
+                         alt="Chocolate Brownie with vanilla ice cream" class="dish-image">
+                    <span class="dish-badge">Must Try! 💯</span>
+                    <div class="dish-content">
+                        <h3>Brownie with Ice Cream <span class="price">₹180</span></h3>
+                        <p>Warm brownie topped with vanilla ice cream and chocolate sauce</p>
+                        <div class="dish-tags">
+                            <span class="tag">🍫 Chocolate</span>
+                            <span class="tag">🔥 Hot & Cold</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Rasmalai.png" 
+                         alt="Creamy Rasmalai garnished with pistachios and saffron" class="dish-image">
+                    <span class="dish-badge">Signature 👌</span>
+                    <div class="dish-content">
+                        <h3>Rasmalai <span class="price">₹120</span></h3>
+                        <p>Cottage cheese dumplings in sweetened milk with saffron</p>
+                        <div class="dish-tags">
+                            <span class="tag">🍮 Traditional</span>
+                            <span class="tag">✨ Light</span>
+                            <span class="tag">🇮🇳 Indian</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- BEVERAGES SECTION -->
+        <section id="beverages">
+            <h2>🥤 Beverages</h2>
+            <div class="menu-grid">
+                <article>
+                    <img src="Fresh Lime Soda.png" 
+                         alt="Fresh Lime Soda" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Fresh Lime Soda <span class="price">₹60</span></h3>
+                        <p>Refreshing lemon drink with mint</p>
+                        <div class="dish-tags">
+                            <span class="tag">🍋 Refreshing</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Mango Lassi.png" 
+                         alt="Mango Lassi" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Mango Lassi <span class="price">₹80</span></h3>
+                        <p>Sweet yogurt-based mango drink</p>
+                        <div class="dish-tags">
+                            <span class="tag">🥭 Mango</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Masala Chai.png" 
+                         alt="Masala Chai" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Masala Chai <span class="price">₹40</span></h3>
+                        <p>Traditional Indian spiced tea</p>
+                        <div class="dish-tags">
+                            <span class="tag">☕ Hot</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="Cold Coffee.png" 
+                         alt="Cold Coffee" class="dish-image">
+                    <div class="dish-content">
+                        <h3>Cold Coffee <span class="price">₹100</span></h3>
+                        <p>Chilled coffee with ice cream</p>
+                        <div class="dish-tags">
+                            <span class="tag">☕ Cold</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- REVIEWS SECTION -->
+        <section id="reviews">
+            <h2>⭐ Customer Reviews</h2>
+            <div class="menu-grid">
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                             alt="Priya Sharma" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Food Blogger</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "The Butter Chicken here is absolutely divine! Authentic flavors and perfect spice level. The ambiance is cozy and the staff is very courteous. Highly recommended for family dinners!"
+                    </p>
+                    <p class="review-date">Posted 2 days ago</p>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" 
+                             alt="Rahul Mehta" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Rahul Mehta</h4>
+                            <p>Regular Customer</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "Best biryani in Pimpri! The rice is perfectly cooked, aromatic spices, and tender meat. Their delivery is always on time. My go-to place for weekend treats!"
+                    </p>
+                    <p class="review-date">Posted 5 days ago</p>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                             alt="Sneha Kulkarni" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Sneha Kulkarni</h4>
+                            <p>Food Enthusiast</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "Their Paneer Tikka is to die for! Perfectly grilled with amazing marinade. The desserts are equally fantastic - try the Gulab Jamun. Great value for money!"
+                    </p>
+                    <p class="review-date">Posted 1 week ago</p>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" 
+                             alt="Amit Desai" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Amit Desai</h4>
+                            <p>Local Guide</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "Excellent food quality and quick service. The pasta is surprisingly good for an Indian restaurant. Only complaint - parking can be difficult during peak hours."
+                    </p>
+                    <p class="review-date">Posted 2 weeks ago</p>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/women/55.jpg" 
+                             alt="Neha Patil" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Neha Patil</h4>
+                            <p>Happy Customer</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "Celebrated my anniversary here - they made it so special! Complimentary dessert, beautiful decoration, and impeccable service. The food was outstanding as always!"
+                    </p>
+                    <p class="review-date">Posted 3 weeks ago</p>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/men/72.jpg" 
+                             alt="Vikram Singh" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <h4>Vikram Singh</h4>
+                            <p>First Time Visitor</p>
+                        </div>
+                    </div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">
+                        "Visited for the first time based on friend's recommendation - absolutely loved it! Fresh ingredients, authentic taste, and reasonable prices. Will definitely come back!"
+                    </p>
+                    <p class="review-date">Posted 1 month ago</p>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2>📞 Order Now or Reserve a Table</h2>
+            
+            <form onsubmit="return handleSubmit(event)">
+                <label for="customer-name">Your Name:</label>
+                <input type="text" id="customer-name" name="customer-name" placeholder="Enter your name" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 1234567890" required>
+
+                <label for="order-type">Order Type:</label>
+                <select id="order-type" name="order-type" required>
+                    <option value="">-- Select --</option>
+                    <option value="dine-in">Dine In</option>
+                    <option value="takeaway">Takeaway</option>
+                    <option value="delivery">Home Delivery</option>
+                </select>
+
+                <label for="special-request">Special Requests:</label>
+                <textarea id="special-request" name="special-request" rows="3" placeholder="Any dietary preferences or special instructions?"></textarea>
+
+                <button type="submit">Place Order / Reserve</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div>
+            <h3>Spice Garden Restaurant</h3>
+            <address>
+                123 Main Road, Pimpri<br>
+                Maharashtra, India - 411018<br>
+                📧 info@spicegarden.com
+            </address>
+        </div>
+        
+        <div>
+            <h4>Opening Hours</h4>
+            <p>Monday - Sunday: 11:00 AM - 11:00 PM</p>
+            <p>Happy Hours: 4:00 PM - 7:00 PM (20% off)</p>
+        </div>
+
+        <div>
+            <h4>Follow Us</h4>
+            <p>
+                <a href="#" onclick="alert('Visit us on Facebook!')">Facebook</a> | 
+                <a href="#" onclick="alert('Follow us on Instagram!')">Instagram</a> | 
+                <a href="#" onclick="alert('Order on Zomato!')">Zomato</a> | 
+                <a href="#" onclick="alert('Order on Swiggy!')">Swiggy</a>
+            </p>
+        </div>
+
+        <p>&copy; 2024 Spice Garden Restaurant. All rights reserved.</p>
+    </footer>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="scroll-to-top" onclick="scrollToTop()" id="scrollBtn">
+        ↑
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Scroll to Top Button
+        window.onscroll = function() {
+            const scrollBtn = document.getElementById('scrollBtn');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Form Submit Handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('customer-name').value;
+            const orderType = document.getElementById('order-type').value;
+            alert(`Thank you, ${name}! Your ${orderType} request has been received. We'll contact you shortly! 🎉`);
+            return false;
+        }
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add click animation to menu items
+        document.querySelectorAll('article').forEach(article => {
+            article.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and articles
+        document.querySelectorAll('section, article').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
